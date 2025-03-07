@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icon.png">
+    <title>Contact Me - Raven Studio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link href="./smartmenus/sm-core-css.css" rel="stylesheet">
+    <link href="./smartmenus/sm-blue.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="js/gallery.js"></script>
+    <script src="./smartmenus/jquery.smartmenus.min.js"></script>
+    <script src="js/custom_smart_menu.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #F7A7B6, #6A8D92);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .contact-form {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            width: 50%;
+            margin: auto;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+        input[type="submit"] {
+            background: #C04000;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        input[type="submit"]:hover {
+            background: #F7A7B6;
+        }
+        .service-options {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .service-options button {
+            background: #6A8D92;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .service-options button:hover {
+            background: #F7A7B6;
+        }
+    </style>
+</head>
+<body>
+    <header id="site-header">
+        <h2 class="nav-brand"><a href="./">Raven Studio</a></h2>
+        <nav>
+            <ul class="sm sm-blue" id="main-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about_me.html">About Me</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact Me</a></li>
+                    <li><a href="https://learn.unity.com/" target="_blank">Unity Learn</a></li>
+                    <li><a href="color.html" class="active">Color Generator</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="banner">
+        <h1>Contact Me</h1>
+    </div>
+
+    <main id="main">
+        <section class="contact-form">
+            <h2>Get in Touch</h2>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="service">Type of Service:</label>
+                <div class="service-options">
+                    <button type="button">Game Development</button>
+                    <button type="button">UI/UX Design</button>
+                    <button type="button">Consultation</button>
+                </div>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                
+                <input type="submit" value="Send">
+            </form>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <p>Copyright © Raven Studio; 2023 All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
+

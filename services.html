@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icon.png">
+    <title>Services - Raven Studio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link href="./smartmenus/sm-core-css.css" rel="stylesheet">
+    <link href="./smartmenus/sm-blue.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="js/gallery.js"></script>
+    <script src="./smartmenus/jquery.smartmenus.min.js"></script>
+    <script src="js/custom_smart_menu.js"></script>
+    <style>
+        .image-gallery {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .image-gallery img {
+            max-width: 30%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header id="site-header">
+        <div class="main-menu">
+            <nav class="main-nav" role="navigation">
+                <h2 class="nav-brand"><a href="./">Raven Studio</a></h2>
+                <ul class="sm sm-blue" id="main-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about_me.html">About Me</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact Me</a></li>
+                    <li><a href="https://learn.unity.com/" target="_blank">Unity Learn</a></li>
+                    <li><a href="color.html" class="active">Color Generator</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="banner">
+        <h1>Our Raven Studio Services</h1>
+    </div>
+
+    <main id="main">
+        <section class="services-list">
+            <h2>What We Offer</h2>
+            <ul>
+                <li><strong>Game Design:</strong> Conceptualization, storytelling, and gameplay mechanics.</li>
+                <li><strong>Development:</strong> Coding in Godot, Unity, and more to bring your game idea to life.</li>
+                <li><strong>Art & Animation:</strong> Stunning visuals and smooth animations to bring your game to life.</li>
+                <li><strong>Sound Design:</strong> Music and sound effects to enhance the gaming experience.</li>
+            </ul>
+        </section>
+
+        <section class="image-gallery">
+            <img src="images/board1.jpg" alt="Description of Image 1">
+            <img src="images/board2.jpg" alt="Description of Image 2">
+            <img src="images/board3.jpg" alt="Description of Image 3">
+        </section>
+    </main>
+
+    <footer id="footer">
+        <p>Copyright © Raven Studio; 2023 All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icon.png" type="image/png">
+    <title>Game Theme & Color Generator</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link href="./smartmenus/sm-core-css.css" rel="stylesheet">
+    <link href="./smartmenus/sm-blue.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="js/gallery.js"></script>
+    <script src="./smartmenus/jquery.smartmenus.min.js"></script>
+    <script src="js/custom_smart_menu.js"></script>
+    <script src="js/pillarCycling.js"></script>
+    <style>
+        body {
+            text-align: center;
+            padding: 20px;
+            background: var(--bg-color, linear-gradient(45deg, #F7A7B6, #6A8D92)); /* Gradient background */
+            color: var(--text-color, #ffffff);
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            background: var(--content-bg, rgba(255, 255, 255, 0.1));
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .color-box, .theme-box {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            border-radius: 8px;
+            margin: 10px;
+            border: 2px solid #ffffff;
+        }
+        button {
+            padding: 12px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: var(--button-bg, #6A8D92); /* Blue Lagoon */
+            color: var(--button-text, #ffffff);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background-color: var(--button-hover, #F7A7B6); /* Rose Quartz Hover */
+        }
+        select {
+            font-size: 16px;
+            padding: 8px;
+            background: var(--input-bg, #222);
+            color: var(--input-text, #fff);
+            border: 1px solid var(--border-color, #444);
+            border-radius: 5px;
+        }
+        #color-container, #theme-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        /* Header & Navigation */
+        header {
+            background-color: #0f0000; /* Red Mahogany */
+            padding: 10px 0;
+        }
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+        .main-nav li {
+            margin: 0 20px;
+        }
+        .main-nav a {
+            text-decoration: none;
+            color: #F7A7B6; /* Rose Quartz */
+            font-size: 1.2em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .main-nav a:hover {
+            color: #6A8D92; /* Blue Lagoon hover */
+        }
+    </style>
+</head>
+<body>
+    <header id="site-header">
+        <div class="main-menu">
+            <nav class="main-nav">
+                <ul class="sm sm-custom">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about_me.html">About Me</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact Me</a></li>
+                    <li><a href="https://learn.unity.com/" target="_blank">Unity Learn</a></li>
+                    <li><a href="color.html" class="active">Color Generator</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Game Theme & Color Generator</h2>
+        <p>Generate a custom color palette and theme for your game.</p>
+        <div id="color-container">
+            <div id="base-color" class="color-box"></div>
+            <div id="triadic1" class="color-box"></div>
+            <div id="triadic2" class="color-box"></div>
+            <div id="complementary" class="color-box"></div>
+        </div>
+        <p id="color-info">Click the button to generate colors</p>
+        <h3>Select Game Theme</h3>
+        <select id="theme-selector">
+            <option value="dark">Dark Mode</option>
+            <option value="retro">Retro</option>
+            <option value="nature">Nature</option>
+            <option value="futuristic">Futuristic</option>
+        </select>
+        <h3>Generated Game Theme Colors</h3>
+        <div id="theme-container">
+            <div id="bg-color" class="theme-box"></div>
+            <div id="text-color" class="theme-box"></div>
+            <div id="button-color" class="theme-box"></div>
+            <div id="highlight-color" class="theme-box"></div>
+        </div>
+        <button onclick="generateColors()">Generate Colors & Theme</button>
+    </main>
+
+    <footer id="footer">
+        <p>Copyright © Raven Studio; 2025 All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Random color generation
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // Adjust color by a given angle
+        function adjustColor(color, angle) {
+            const hex = color.slice(1); // Remove '#' symbol
+            const rgb = parseInt(hex, 16); // Convert hex to RGB
+
+            let r = (rgb >> 16) & 0xff;
+            let g = (rgb >> 8) & 0xff;
+            let b = (rgb >> 0) & 0xff;
+
+            r = Math.min(255, r + angle);
+            g = Math.min(255, g + angle);
+            b = Math.min(255, b + angle);
+
+            return `#${(1 << 24 | r << 16 | g << 8 | b).toString(16).slice(1).toUpperCase()}`;
+        }
+
+        // Get colors based on the selected theme
+        function getThemeColors(theme) {
+            if (theme === 'dark') {
+                return { bg: '#333333', text: '#FFFFFF', button: '#F7A7B6', highlight: '#6A8D92' };
+            } else if (theme === 'retro') {
+                return { bg: '#000000', text: '#FF7F00', button: '#FFFF00', highlight: '#00FF00' };
+            } else if (theme === 'nature') {
+                return { bg: '#2D6A4F', text: '#F1F3F5', button: '#1B4D3E', highlight: '#94D2BD' };
+            } else if (theme === 'futuristic') {
+                return { bg: '#2D3A3A', text: '#9C27B0', button: '#FF4081', highlight: '#00BCD4' };
+            }
+            return { bg: '#ffffff', text: '#000000', button: '#0000FF', highlight: '#FFFF00' }; // Default
+        }
+
+        // Generate the colors and update the page
+        function generateColors() {
+            const baseColor = getRandomColor();
+            console.log("Base Color:", baseColor);
+            document.getElementById('base-color').style.backgroundColor = baseColor;
+            document.getElementById('triadic1').style.backgroundColor = adjustColor(baseColor, 120);
+            document.getElementById('triadic2').style.backgroundColor = adjustColor(baseColor, -120);
+            document.getElementById('complementary').style.backgroundColor = adjustColor(baseColor, 180);
+
+            const theme = document.getElementById('theme-selector').value;
+            let themeColors = getThemeColors(theme);
+            console.log("Theme Colors:", themeColors);
+
+            document.getElementById('bg-color').style.backgroundColor = themeColors.bg;
+            document.getElementById('text-color').style.backgroundColor = themeColors.text;
+            document.getElementById('button-color').style.backgroundColor = themeColors.button;
+            document.getElementById('highlight-color').style.backgroundColor = themeColors.highlight;
+        }
+    </script>
+</body>
+</html>

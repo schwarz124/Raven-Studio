@@ -1,0 +1,20 @@
+/game-development-studio
+│
+├── /css
+│   ├── styles.css
+│   ├── smartmenus.css
+│
+├── /js
+│   ├── custom_smart_menu.js
+│
+├── /images
+│   ├── game_1.jpg
+│   ├── game_2.jpg
+│   └── logo.png
+│
+├── index.html
+├── about_us.html
+├── services.html
+├── portfolio.html
+├── blog.html
+└── contact.html
